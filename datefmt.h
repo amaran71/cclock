@@ -57,8 +57,10 @@ map<string, string> datefmt()
 
 	// substr's time into seperate h:m:s values
 	string ttime = arr[3];
-		string hour = ttime.substr(0, 2);
-		string min  = ttime.substr(3, 2);
+		string hour1 = ttime.substr(0, 1);
+		string hour2 = ttime.substr(1, 1);
+		string min1  = ttime.substr(3, 1);
+		string min2  = ttime.substr(4, 1);
 		string sec  = ttime.substr(6, 2);
 
 	// weekday
@@ -68,18 +70,48 @@ map<string, string> datefmt()
 	// day (num)
 	string da = arr[2];
 	// year
-	string ye = arr[3];
+	string ye = arr[4];
+	
+	string od;
+	switch(da.at(1))
+	{
+		case '1':
+			od = "st";
+			break;
+		case '2':
+			od = "nd";
+			break;
+		case '3':
+			od = "rd";
+			break;
+		default:
+			od = "th";
+			break;
+	}
 
 	map<string, string> output = {
 		{ "weekday", wd   },
 		{ "day",     da   },
+		{ "ordinal", od   },
 		{ "month",   mo   },
 		{ "year",    ye   },
 
-		{ "hour",    hour },
-		{ "minute",  min  },
+		{ "hour1",  hour1 },
+		{ "hour2",  hour2 },
+		{ "minute1", min1 },
+		{ "minute2", min2 },
 		{ "second",  sec  }
 	};
 
 	return output;
+}
+
+string gettime()
+{
+	// get current time
+	auto timey = std::chrono::system_clock::now();
+	time_t end_time = std::chrono::system_clock::to_time_t(timey);
+	string timeout = std::ctime(&end_time);
+	
+	return timeout;
 }

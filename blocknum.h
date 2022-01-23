@@ -1,3 +1,4 @@
+#define _X_OPEN_SOURCE_EXTENDED
 #include <cmath>
 #include <string.h>
 #include <ncurses.h>
@@ -28,6 +29,7 @@ void pprint(string str)
 
 void blocknum(int n)
 {
+	setlocale(LC_ALL, "");
 	int y, x;
 	getyx(stdscr, y, x);
 
