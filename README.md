@@ -7,4 +7,4 @@ blocknum.h:  pprint (proper print), and functions to print the big funny numbers
 
 
 
-build and add to path with ``sudo make install``, remove with ``sudo make uninstall``.
+build and add to path with ``sudo make install``, remove with ``sudo make uninstall``. (makefile uses clang/llvm)
