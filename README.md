@@ -1,4 +1,4 @@
-# crumb clock: tty-clock but the developer is a fucking retard and cant get ncursesw to work
+# crumb clock: tty-clock but the creator is a fucking retard and cant get ncursesw to work
 
 datefmt.h :  functions to format the current date.
 
